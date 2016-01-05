@@ -1,0 +1,10 @@
+
+
+.top{
+    padding-top: 0 !important;
+}
+
+/*The footer looks lovely without a border*/
+.footerContent{
+    border:none !important;
+}

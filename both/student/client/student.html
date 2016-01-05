@@ -1,0 +1,53 @@
+<!-- 
+      Project Name: Instructent 
+      User: Devin Dodson
+      Created: 9/23/2015
+      Notes:
+-->
+
+<template name="student">
+
+    <div class="center aligned column">
+
+        <div class="ui container">
+
+            <form class="ui {{#if isInvalidCode}}error{{/if}} form">
+
+                <div class="ui grid">
+
+                    <div class="field row">
+
+                        <label>
+                            Get the session code from your instructor and enter it here
+                        </label>
+                        <input type="text" placeholder="Enter code to join session" name="joinSession">
+
+                    </div>
+
+                    {{#if isInvalidCode}}
+
+                        <div class="row">
+
+                            <div class="ui error message">
+                                <p>Sorry, that's not a valid session code!</p>
+                            </div>
+
+                        </div>
+
+                    {{/if}}
+
+
+                    <div class="row">
+
+                        <button class="ui primary submit button" type="submit">Enter Session</button>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+</template>

@@ -1,0 +1,117 @@
+<!-- 
+      Project Name: Instructent 
+      User: Devin Dodson
+      Created: 9/23/2015
+      Notes:
+-->
+
+<template name="instructor_dashboard">
+
+    <div class="center aligned column">
+
+        <table class="ui slide-fade-in attached unstackable selectable left aligned table">
+
+            <thead>
+
+            <tr>
+                <th></th>
+                <th>Session Name</th>
+                <th>Live</th>
+                <th>Created</th>
+                <th></th>
+                <th></th>
+            </tr></thead>
+
+            <tbody id="sortableSessions">
+
+            {{!--{{#sortable items=session--}}
+
+            {{#each session}}
+
+                {{> sessionContent}}
+
+            {{/each}}
+            {{!--{{/sortable--}}
+
+
+            </tbody>
+
+            <tfoot class="full-width">
+
+            <tr>
+                <th colspan="6">
+                    <button class="ui fluid primary attached positive newSession button">New Session</button>
+                </th>
+            </tr>
+
+            </tfoot>
+
+        </table>
+
+        <div class="ui basic segment">
+            <button class="ui primary submit logout button" type="button">Log Out</button>
+        </div>
+
+        {{!--The modal to show when the user chooses to delete a session--}}
+        {{!--Note: Breaking the inside of the modal up into a separate template is actually necessary in order to
+        catch events firing from it in the standard 'Meteor' way--}}
+        <div class="ui modal_confirmDeleteSession modal">
+            {{> modal_confirmDelete_content}}
+        </div>
+
+    </div>
+
+</template>
+
+<template name="sessionContent">
+
+    <tr>
+
+        <td>
+            <a href="{{pathFor route='instructor_editSession'}}">
+                <i class="edit link icon" title="Edit this session"></i>
+            </a>
+        </td>
+
+        <td>{{this.name}}</td>
+
+        {{!--Gotta get the 'live' value from a helper, since true/false won't display properly--}}
+        <td>
+            {{#if this.isLive}}
+                <i class="large toggleLive unhide link icon" title="This session is visible to students"></i>
+            {{else}}
+                <i class="large red toggleLive hide link icon" title="This session is not visible to students"></i>
+            {{/if}}
+
+        </td>
+
+        <td>{{getPrettyDate this.createdAt}}</td>
+
+        <td class="right aligned">
+            <i class="deleteSession trash outline link icon" title="Delete this session"></i>
+        </td>
+
+        <td class="right aligned">
+            <i class="handle move icon"></i>
+        </td>
+
+    </tr>
+
+</template>
+
+<template name="modal_confirmDelete_content">
+
+    <div class="header">
+        Delete Session
+    </div>
+    <div class="image content">
+        <div class="description">
+            Are you sure you want to delete this session?
+        </div>
+    </div>
+    <div class="actions">
+        <button class="ui deny button">Cancel</button>
+        <button class="ui approve button">Delete</button>
+    </div>
+
+</template>

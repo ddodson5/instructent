@@ -1,0 +1,28 @@
+/* Sticky footer styles
+
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+    height: auto !important;
+}
+
+body {
+    /*If I change the height of the footer, I'll need to change this*/
+    margin: 0 0 104px; /* bottom = footer height */
+}
+
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+/*The Semantic UI modals use .dimmable on the body, which breaks the footer -- this SEEMS to fix it*/
+.dimmable{
+    position: initial;
+}

@@ -1,0 +1,135 @@
+<!-- 
+      Project Name: Instructent 
+      User: Devin Dodson
+      Created: 10/9/2015
+      Notes:
+-->
+
+<template name="instructor_editSession">
+
+    <div class="ui grid container">
+
+        <div class="centered row">
+
+            <div class="ui basic segment" title="Give this code to your students so they can view this session">
+                <h1 class="ui big header">Student Login Token: {{this.currentSession._id}} </h1>
+            </div>
+
+        </div>
+
+        <div class="four wide column">
+
+            <div class="ui vertical attached menu">
+
+                {{!--Menu stuff here --}}
+                <div class="item">
+
+                    <div class="header">
+                        Add Question Module:
+                    </div>
+
+                </div>
+
+
+                {{#each questionModuleTypes}}
+
+                    <a class="newModule item">{{this.label}}</a>
+
+                {{/each}}
+
+
+                <div class="item">
+
+                    <div class="header">
+                        Add Information Module:
+                    </div>
+
+                </div>
+
+
+                {{#each informationModuleTypes}}
+
+                    <a class="newModule item">{{this.label}}</a>
+
+                {{/each}}
+
+
+            </div>
+
+        </div>
+
+
+        <div class="slide-fade-in twelve wide column">
+
+            <table class="ui compact unstackable attached selectable table">
+
+                <thead>
+
+                <tr>
+                    <th><i class="ui caret right link icon"></i></th>
+                    <th title="This is the order in which students will see the modules">#</th>
+                    <th>Live</th>
+                    <th>Module Type</th>
+                    <th>Content</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+
+                {{#each wrappedModules }}
+
+                    {{> moduleRow}}
+
+                {{/each}}
+
+                </tbody>
+
+            </table>
+
+            {{!--If there are no modules in this session, display a message about it to the user--}}
+            {{#if displayEmptyMessage}}
+            {{> emptyMessage}}
+            {{/if}}
+            {{!--The modal to show when the user chooses to delete a session--}}
+            {{!--Note: Breaking the inside of the modal up into a separate template is actually necessary in order to
+            catch events firing from it in the standard 'Meteor' way--}}
+
+
+        </div>
+
+        <div class="centered row">
+            <button class="ui primary submit logout button" type="button">Log Out</button>
+        </div>
+
+    </div>
+
+
+
+    <div class="ui modal_confirmDeleteSession modal">
+        {{!--{{> modal_confirmDelete_content}}--}}
+    </div>
+
+</template>
+
+
+
+<template name="emptyMessage">
+    {{!--{{#animationBlock conditionalFunction="noModulesToDisplay" transitionType="fade"--}}
+        <div class="ui slide-fade-in message" id="noMessage">
+            <div class="header">
+                No modules
+            </div>
+            <i class="close icon"></i>
+            <p>Click a module type on the left to create a new module.</p>
+        </div>
+    {{!--{{/animationBlock--}}
+</template>
+
+<template name="animationBlock">
+    {{!--conditionalFunctionName, transition type --}}
+    {{> UI.contentBlock }}
+</template>

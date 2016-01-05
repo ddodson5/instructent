@@ -1,0 +1,109 @@
+<!-- 
+      Project Name: Instructent 
+      User: Devin Dodson
+      Created: 10/17/2015
+      Notes:
+-->
+
+
+<template name="moduleRow">
+
+    {{!--{{#animationBlock conditionalFunction="alwaysTransition" transitionType="fade"--}}
+
+
+        <tr>
+            <td>
+
+                <i class="ui caret right link icon"></i>
+            </td>
+
+            <td>
+                {{this.module.index}}
+            </td>
+
+            <td>
+                {{#if this.module.isLive}}
+                    <i class="large toggleLive unhide link icon" title="This module is visible to students"></i>
+                {{else}}
+                    <i class="large toggleLive red hide link icon" title="This module is not visible to students"></i>
+                {{/if}}
+            </td>
+
+            <td>
+                {{this.module.moduleType}}
+
+            </td>
+
+            <td>
+                {{!--Here we have the actual content of the module--}}
+                {{!-- Select the appropriate template, depending on this module's state --}}
+                {{#if isDisplayRow}}
+                    {{> displayModuleContent}}
+                {{/if}}
+
+                {{#if isUpdateRow}}
+                    {{> updateModuleContent}}
+                {{/if}}
+
+                {{#if isInsertRow}}
+                    {{> insertModuleContent}}
+                {{/if}}
+
+            </td>
+
+            <td>
+                <i class="deleteSession trash outline link icon" title="Delete this module"></i>
+            </td>
+
+            <td>
+                <i class="handle move icon"></i>
+            </td>
+
+        </tr>
+
+    {{!--{{/animationBlock--}}
+</template>
+
+
+<template name="insertModuleContent">
+
+    <td>{{this.index}}</td>
+
+    <td>{{getModuleTypeName moduleType}}</td>
+
+    <td>
+
+        {{> insertModuleForm}}
+
+    </td>
+</template>
+
+<template name="insertModuleForm">
+    <!--{{print this}}-->
+    {{> modifyModuleForm extendContextByReference fieldName=getFieldName}}
+</template>
+
+
+<template name="insertNewMultipleChoice">
+
+
+</template>
+
+
+<template name="insertNewSingleChoice">
+
+    {{> modifyModuleForm schema=getModuleSchema questionField="singleChoiceQuestion"}}
+
+</template>
+
+<template name="insertNewBasicQuestionType">
+
+
+
+</template>
+
+<template name="insertNewWordScramble">
+
+    {{> modifyModuleForm schema=getModuleSchema questionField="wordScrambleQuestion"}}
+
+</template>

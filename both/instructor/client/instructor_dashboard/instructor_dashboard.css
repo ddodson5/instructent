@@ -1,0 +1,5 @@
+
+/*Make the handle to move the session rows look like a handle*/
+.handle {
+    cursor: move
+}

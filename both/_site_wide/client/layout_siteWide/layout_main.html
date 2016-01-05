@@ -1,0 +1,120 @@
+<!-- 
+      Project Name: Instructent 
+      User: Devin Dodson
+      Created: 9/22/2015
+-->
+<template name="topTemplate">
+
+{{> yield}}
+
+</template>
+
+
+<template name="layout_main">
+
+    <body>
+    <!--Wrap all of the site content, and make it fill the viewport-->
+    <div class="ui padded grid">
+
+        {{!--<div class="ui fluid container main">--}}
+
+
+        <!--Main menu-->
+
+        <div class="top row">
+
+            {{> mainMenu}}
+
+        </div>
+
+        {{!--A spot to display error messages to the user.
+        This won't necessarily be used to display form-related errors--}}
+
+        {{!--Only show if there's an error message to display--}}
+
+        {{#if generalErrorMessage}}
+
+            {{> errorMessage messageToShow=generalErrorMessage}}
+
+        {{/if}}
+
+        {{> yield "leftDashboard"}}
+
+        <!--Main page content-->
+
+        <div class="row">
+
+            {{> yield}}
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        {{> footer}}
+
+    </footer>
+
+    </body>
+
+</template>
+
+
+<template name="mainMenu">
+
+    <div class="ui attached inverted teal secondary pointing menu">
+
+        {{!--<div class="ui container">--}}
+
+        <div class="left menu">
+
+            <a class="{{isActiveRoute name='home'}} item" href="{{pathFor route='home'}}">Instructent</a>
+
+        </div>
+
+        <div class="right menu">
+
+            {{!--Mark as active if current path begins with '/about'--}}
+            {{!--<a class="{{isActivePath regex='^\\/about'}} item" href="{{pathFor route='about'}}">About</a>--}}
+
+            {{!--Mark as active if current path begins with '/instructor'--}}
+            <a class="{{isActivePath regex='^\\/instructor'}} item" href="{{pathFor route='instructor_dashboard'}}">Instructor</a>
+
+            {{!--Mark as active if current path begins with '/student'--}}
+            <a class="{{isActivePath regex='^\\/student'}} item" href="{{pathFor route='student'}}">Student</a>
+
+        </div>
+
+        {{!--</div>--}}
+
+    </div>
+
+</template>
+
+<template name="footer">
+
+    <div class="ui attached footerContent inverted tertiary segment">
+
+        <div class="ui inverted section divider"></div>
+        <h5 class="header">Copyright &copy; Devin Dodson, 2015</h5>
+
+    </div>
+
+</template>
+
+<template name="errorMessage">
+    <div class="centered row">
+
+        <div class="ui negative left aligned message container">
+            <i class="close icon"></i>
+            <div class="header">Error:</div>
+            <p>
+                {{messageToShow}}
+            </p>
+        </div>
+
+    </div>
+
+</template>

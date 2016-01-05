@@ -1,0 +1,67 @@
+<!-- 
+      Project Name: Instructent 
+      User: Devin Dodson
+      Created: 9/28/2015
+      Notes:
+-->
+
+<template name="instructor_signIn">
+
+
+    {{!--
+         <div class="{{#if signInErrorMessage}}ui tertiary red inverted padded segment{{/if}}">
+    --}}
+    <div class="center aligned column">
+
+        <div class="ui container">
+
+            <form class="ui {{#if signInErrorMessage}}error{{/if}} form">
+
+                <div class="ui grid">
+
+                    {{#if signInErrorMessage}}
+
+                        <div class="row">
+
+                            <div class="ui error message">
+                                <p>{{signInErrorMessage}}</p>
+                            </div>
+
+                        </div>
+
+                    {{/if}}
+
+                    <div class="field row">
+
+                        <label>Username or Email Address</label>
+                        <input type="text" id="username" placeholder="Enter your username here">
+
+                    </div>
+
+                    <div class="field row">
+
+                        <label>Password</label>
+                        <input type="password" id="password" placeholder="Enter your password here">
+
+                    </div>
+
+
+                    <div class="row">
+                        <button class="ui primary submit button" type="submit">Log In</button>
+                    </div>
+
+
+                    <div class="row">
+                        <p>Don't have an account? <a>Sign up here.</a> </p>
+
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</template>

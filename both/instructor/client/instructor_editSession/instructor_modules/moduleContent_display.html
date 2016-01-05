@@ -1,0 +1,71 @@
+<!-- 
+      Project Name: Instructent 
+      User: Devin Dodson
+      Created: 10/17/2015
+      Notes:
+-->
+
+<template name="displayModuleContent">
+
+    {{!--
+    ****************************
+    Multiple Choice
+    ****************************
+    --}}
+
+    {{#if moduleIsOfType $.Instructent.Both.Schema.moduleTypes.QuestionTypes.MULTIPLE_CHOICE.value}}
+
+        <p>{{this.module.question.multipleChoiceQuestion}}</p>
+
+        <ol class="ui indented divided list">
+            {{#each multipleChoiceAnswers}}
+                <li class="item">
+                    {{#if this.isTrueAnswer}}
+                        <div class="right floated content">
+                            <i class="ui green checkmark icon"></i>
+                        </div>
+                    {{/if}}
+                    {{this.value}}
+                </li>
+            {{/each}}
+        </ol>
+    {{/if}}
+
+
+    {{!--
+****************************
+Single Choice
+****************************
+--}}
+    {{#if moduleIsOfType $.Instructent.Both.Schema.moduleTypes.QuestionTypes.SINGLE_CHOICE.value}}
+
+        <p>{{this.module.question.singleChoiceQuestion}}</p>
+
+        <ol class="ui indented divided list">
+            {{#each singleChoiceAnswers}}
+                <li class="item">
+                    {{#if this.isTrueAnswer}}
+                        <div class="right floated content">
+                            <i class="ui green checkmark icon"></i>
+                        </div>
+                    {{/if}}
+                    {{this.value}}
+                </li>
+            {{/each}}
+        </ol>
+    {{/if}}
+
+    {{!--
+   ****************************
+    Message
+   ****************************
+   --}}
+
+    {{#if moduleIsOfType $.Instructent.Both.Schema.moduleTypes.InfoTypes.MESSAGE.value}}
+
+        <p>{{this.module.question.message}}</p>
+
+    {{/if}}
+
+</template>
+

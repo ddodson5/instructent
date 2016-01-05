@@ -1,0 +1,64 @@
+<!-- 
+      Project Name: Instructent 
+      User: Devin Dodson
+      Created: 10/17/2015
+      Notes:
+-->
+
+<template name="updateModuleContent">
+
+    <form class="ui {{#if signInErrorMessage}}error{{/if}} form">
+
+
+    {{!--
+****************************
+Multiple Choice
+****************************
+--}}
+    {{#if moduleIsOfType $.Instructent.Both.Schema.moduleTypes.QuestionTypes.MULTIPLE_CHOICE.value}}
+
+        <div class="field">
+
+            <input type="text" class="questionInput" name="multipleChoiceQuestion" placeholder="Enter a multiple choice question here">
+
+        </div>
+
+
+        <ol class="ui indented divided list">
+
+            {{#each multipleChoiceAnswers}}
+                <li class="item">
+                    {{#if this.isTrueAnswer}}
+                        <div class="right floated content">
+                            <i class="ui green checkmark icon"></i>
+                        </div>
+                    {{/if}}
+                    {{this.value}}
+                </li>
+            {{/each}}
+
+        </ol>
+
+    {{/if}}
+
+    {{!--
+   ****************************
+    Message
+   ****************************
+   --}}
+
+    {{#if moduleIsOfType $.Instructent.Both.Schema.moduleTypes.InfoTypes.MESSAGE.value}}
+
+        <div class="field">
+
+            <input type="text" class="messageInput" name="message" placeholder="Enter a message here">
+
+        </div>
+        {{!--<p>{{this.module.question.message}}</p>--}}
+
+    {{/if}}
+
+        </form>
+
+</template>
+

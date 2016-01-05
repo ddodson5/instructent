@@ -1,0 +1,2 @@
+Instructent.Both.Collections.modulesCollection.insert({sessionId: "S9EzFnLzDv6f4g78B", answers:{multipleChoiceAnswers: {trueAnswers: ['1'], falseAnswers: [] }}, moduleType:"MULTIPLE_CHOICE", question:{multipleChoiceQuestion: "HEY"}, index: 6, isLive: true });
+
