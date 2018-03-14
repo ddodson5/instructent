@@ -11,8 +11,8 @@
 raix:handlebar-helpers
 iron:router
 aldeed:collection2
-accounts-ui
-accounts-password
+accounts-ui@1.3.0
+accounts-password@1.5.0
 #aldeed:autoform
 #aldeed:delete-button
 #msavin:mongol
@@ -20,9 +20,9 @@ accounts-password
 semantic:ui
 flemay:less-autoprefixer
 u2622:persistent-session
-reactive-var
+reactive-var@1.0.11
 aldeed:template-extension
-reactive-dict
+reactive-dict@1.2.0
 #fabienb4:autoform-semantic-ui
 babrahams:temple
 
@@ -33,20 +33,19 @@ ddodson5:instructent-debug
 
 aldeed:simple-schema
 alanning:roles
-standard-minifiers
-meteor-base
-mobile-experience
-mongo
+meteor-base@1.3.0
+mobile-experience@1.0.5
+mongo@1.4.2
 blaze-html-templates
-session
-jquery
-tracker
-logging
-reload
-random
-ejson
+session@1.1.7
+jquery@1.11.10
+tracker@1.1.3
+logging@1.1.19
+reload@1.2.0
+random@1.1.0
+ejson@1.1.0
 spacebars
-check
+check@1.3.0
 #msavin:mongol@=1.1.5
 momentjs:moment
 zimme:active-route
@@ -57,3 +56,7 @@ constellation:console
 constellation:autopublish
 infinitedg:gsap
 mrt:external-file-loader
+standard-minifier-css
+standard-minifier-js
+shell-server
+dynamic-import

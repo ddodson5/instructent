@@ -1,0 +1,24 @@
+{
+  "name": "@tramampoline/instructent",
+  "version": "0.1.0",
+  "description": "(WIP) A Meteor webapp that allows instructors to quickly and easily create documents, quizzes, or assignments and share them with students using a simple access token.",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.40",
+    "babel-runtime": "^6.26.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trambopoline/instructent.git"
+  },
+  "author": "Devin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trambopoline/instructent/issues"
+  },
+  "homepage": "https://github.com/trambopoline/instructent#readme"
+}
